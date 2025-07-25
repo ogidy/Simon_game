@@ -15,12 +15,17 @@ gamePattern.push(randomChosenColour);
 
 $("#" + randomChosenColour).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 
-const sound = new Audio("./sounds/" + randomChosenColour + ".mp3");
-sound.play();
+
 
 $(".btn").on("click", function() {
     const userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
     // console.log(userClickedPattern);
-    
+    playSound(userChosenColour);
+
 });
+
+function playSound(name) {
+    const sound = new Audio("./sounds/" + name + ".mp3");
+sound.play();
+}
