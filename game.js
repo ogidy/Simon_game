@@ -1,6 +1,4 @@
-
-const gamePattern = [];
-gamePattern.push(randomChosenColour);
+'use strict';
 
 const buttonColours = ["red", "blue", "green", "yellow"];
 
@@ -10,3 +8,11 @@ function nextSequence(){
 };
 
 const randomChosenColour = buttonColours[nextSequence()];
+
+const gamePattern = [];
+gamePattern.push(randomChosenColour);
+
+$("#" + randomChosenColour).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+
+const sound = new Audio("./sounds/" + randomChosenColour + ".mp3");
+sound.play();
