@@ -7,7 +7,7 @@
 
 A modern implementation of the classic Simon electronic memory game, built with clean code principles and professional software development practices.
 
-![Simon Game Preview](./preview.mp4)
+![Simon Game Preview](./preview.gif)
 
 ## 🚀 Features
 
