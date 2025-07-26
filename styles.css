@@ -1,53 +1,172 @@
+/* Simon Game Styles
+   Author: ogidy
+   Version: 1.0
+*/
+
+/* CSS Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
 body {
-  text-align: center;
-  background-color: #011F3F;
+    text-align: center;
+    background-color: #011F3F;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+/* Game Container */
+.game-container {
+    padding: 2rem;
+}
+
+/* Title Styles */
 #level-title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin:  5%;
-  color: #FEF2BF;
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 5% auto;
+    color: #FEF2BF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Game Board Container */
 .container {
-  display: block;
-  width: 50%;
-  margin: auto;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 1rem;
 }
 
+/* Row Styles */
+.row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Button Styles */
 .btn {
-  margin: 25px;
-  display: inline-block;
-  height: 200px;
-  width: 200px;
-  border: 10px solid black;
-  border-radius: 20%;
+    margin: 1rem;
+    height: clamp(150px, 20vw, 200px);
+    width: clamp(150px, 20vw, 200px);
+    border: 10px solid rgba(0, 0, 0, 0.8);
+    border-radius: 20%;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.game-over {
-  background-color: red;
-  opacity: 0.8;
-}
-
+/* Button Colors */
 .red {
-  background-color: red;
+    background-color: #ff3e3e;
+    box-shadow: 0 0 20px rgba(255, 62, 62, 0.3);
 }
 
 .green {
-  background-color: green;
+    background-color: #33cc33;
+    box-shadow: 0 0 20px rgba(51, 204, 51, 0.3);
 }
 
 .blue {
-  background-color: blue;
+    background-color: #3366ff;
+    box-shadow: 0 0 20px rgba(51, 102, 255, 0.3);
 }
 
 .yellow {
-  background-color: yellow;
+    background-color: #ffff4d;
+    box-shadow: 0 0 20px rgba(255, 255, 77, 0.3);
+}
+
+/* Button States */
+.btn:hover {
+    transform: scale(1.02);
 }
 
 .pressed {
-  box-shadow: 0 0 20px white;
-  background-color: grey;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    background-color: rgba(128, 128, 128, 0.8);
+    transform: scale(0.98);
+}
+
+.game-over {
+    background-color: #ff3333;
+    opacity: 0.8;
+    animation: pulse 0.5s;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Game Instructions */
+.game-instructions {
+    margin-top: 2rem;
+    padding: 1rem;
+    color: #FEF2BF;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+.instruction-text {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.button-guide {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.guide-item {
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.guide-color {
+    font-size: 0.7rem;
+}
+
+.green-text { color: #33cc33; text-shadow: 0 0 5px #33cc33; }
+.red-text { color: #ff3e3e; text-shadow: 0 0 5px #ff3e3e; }
+.yellow-text { color: #ffff4d; text-shadow: 0 0 5px #ffff4d; }
+.blue-text { color: #3366ff; text-shadow: 0 0 5px #3366ff; }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    
+    .btn {
+        margin: 0.5rem;
+    }
+
+    .game-instructions {
+        font-size: 0.7rem;
+    }
+
+    .guide-color {
+        font-size: 0.6rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .btn, .pressed, .game-over {
+        transition: none;
+        animation: none;
+    }
 }
