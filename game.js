@@ -46,6 +46,12 @@ function animatePress(currentColour) {
     }, 100);
 }
 
+function startOver() {
+    level = 0;
+    gamePattern = [];
+    gameStarted = false;
+    userClickedPattern = [];
+};
 
 function checkAnswer(currentLevel) {
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
